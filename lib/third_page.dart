@@ -23,9 +23,9 @@ class ThirdPage extends StatelessWidget {
 
   final Map<String, String> wheel2Descriptions = {
     'XL Naturale': 'È stata estratta per la realizzazione una dimensione XL Naturale. \n(Il padding dovrà avere dimensioni realistiche e naturali).',
-    'XL Innaturale': 'È stata estratta per la realizzaizone una dimensione XL Innaturale. \n(Il padding dovrà avere dimensioni realistiche con dettagli innaturali).',
+    'XL Innaturale': 'È stata estratta per la realizzazione una dimensione XL Innaturale. \n(Il padding dovrà avere dimensioni realistiche con dettagli innaturali).',
     'Estremo Innaturale': 'È stata estratta per la realizzazione una dimensione Estrema Innaturale. \n(Il padding dovrà avere dimensioni estreme e innaturali).',
-    'Dettaglio Specifico': 'È stata estratta la realizzazione di un dettaglio speficico. \n(Il padding dovrà essere basato sulle informazioni presenti sul dettaglio estratto).',
+    'Dettaglio Specifico': 'È stata estratta la realizzazione di un dettaglio specifico. \n(Il padding dovrà essere basato sulle informazioni presenti sul dettaglio estratto).',
   };
 
   final Map<String, String> wheel3Descriptions = {
@@ -74,7 +74,7 @@ class ThirdPage extends StatelessWidget {
 
   IconData _getIconForWheel2(String result) {
     switch (result) {
-      case 'XL Naturle':
+      case 'XL Naturale':
         return Icons.compress;
       case 'XL Innaturale':
         return Icons.expand;
@@ -463,42 +463,73 @@ class ThirdPage extends StatelessWidget {
                   ),
                 ),
               ),
-            const SizedBox(height: 20),
-            // Frase per invitare a fare foto
-            const Text(
-              'Fai delle foto al padding per salvare i risultati!',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-              textAlign: TextAlign.center,
+            const Divider(
+              thickness: 1,
+              color: Colors.grey,
             ),
             const SizedBox(height: 10),
-            // Pulsante per andare alla PhotoPage
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PhotoPage(),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+            // Frase per invitare a fare foto
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.add_a_photo),
-                  SizedBox(width: 8),
-                  Text(
-                    'Crea il tuo ricordo',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const Text(
+                      'Cattura il Tuo SnapThicc!',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Immortala il tuo Padding con SnapThicc.\nSalva il risultato per non dimenticarlo mai!',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black54,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PhotoPage(
+                              wheel1Result: wheel1Result,
+                              wheel2Result: wheel2Result,
+                              wheel3Result: wheel3Result,
+                              wheel4Result: wheel4Result,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.add_a_photo),
+                          SizedBox(width: 8),
+                          Text(
+                            'Vai a SnapThicc',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

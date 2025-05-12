@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:padding_app/second_page.dart';
+import 'package:padding_app/snap_thicc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -287,7 +288,7 @@ class _SelectionPageState extends State<SelectionPage> {
                     ),
                     const SizedBox(height: 8),
                     const Text(
-                      'Scegli le opzioni che preferisci per creare il tuo padding casualmente.',
+                      'Scelta casuale, risultato epico. Crea il tuo padding senza pensarci troppo!',
                       style: TextStyle(
                         fontSize: 16,
                       ),
@@ -444,6 +445,51 @@ class _SelectionPageState extends State<SelectionPage> {
                           ),
                           SizedBox(width: 8),
                           Icon(Icons.arrow_forward),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Divider(thickness: 1, color: Colors.grey),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Salva il tuo Padding',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Costruisci il tuo padding perfetto, flexalo con stile e salvalo con SnapThicc!',
+                      style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SnapThiccPage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Vai a SnapThicc',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          SizedBox(width: 8),
+                          Icon(Icons.photo),
                         ],
                       ),
                     ),
@@ -616,9 +662,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: selectedValue != null
           ? FloatingActionButton(
-              onPressed: _goToNextWheel,
-              child: const Icon(Icons.arrow_forward),
-            )
+        onPressed: _goToNextWheel,
+        child: const Icon(Icons.arrow_forward),
+      )
           : null,
     );
   }
